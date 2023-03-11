@@ -1,7 +1,13 @@
 .app {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: .5rem;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+main {
+  display: flex;
 }
 
 .editor-wrapper {
@@ -10,5 +16,26 @@
 
 .render {
   width: 100%;
-  padding: 0 1rem;
+  padding: 1rem 1rem;
+  background: none;
+}
+
+code {
+  background: none !important;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  font-size: .85rem;
+  color: rgba(255, 255, 255, .5);
+  padding: .4rem 0;
+}
+
+@media screen and (max-width: 640px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
 }
