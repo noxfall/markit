@@ -1,16 +1,19 @@
-import './App.scss'
+import { useState, useCallback } from 'react';
+import Editor from '@/components/Editor';
+import './App.css';
 
-console.log('[App.tsx]', `Hello world from Electron ${process.versions.electron}!`)
+const App: React.FC = () => {
+  const [doc, setDoc] = useState<string>('# Welcome\n');
 
-function App() {
+  const handleDocChange = useCallback((newDoc: string) => {
+    setDoc(newDoc);
+  }, []);
 
   return (
     <div className="app">
-     <div style="width: 100%; align-items: center; text-align: center">
-      <img src="./logo.svg" alt="logo" width="480" height="360" />
-     </div>
+      <Editor onChange={handleDocChange} initialDoc={doc} />
     </div>
   )
 }
 
-export default App
+export default App;
